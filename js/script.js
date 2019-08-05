@@ -11,13 +11,13 @@ function randomString() {
 };
 
 //funkcja umożliwiająca przesuwanie kart
-function initSortable(id) {
+/*function initSortable(id) {
   var el = document.getElementById(id);
   var sortable = Sortable.create(el, {
     group: 'kanban',
     sort: true
-  });
-};
+  }); 
+}; */
 
 //kod zacznie się wykonywać po załadowaniu całego drzewa DOM
 document.addEventListener('DOMContentLoaded', function() {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     name: 'Kanban Board',
     addColumn: function(column) {
       this.element.appendChild(column.element);
-      initSortable(column.id);
+      /*initSortable(column.id); */
     },
     element: document.querySelector('#board .column-container')
   };

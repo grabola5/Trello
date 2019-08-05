@@ -43,7 +43,8 @@
   },
   "dependencies": {
     "flickity-hash": "^1.0.3",
-    "mustache": "^3.0.1"
+    "mustache": "^3.0.1",
+    "sortablejs": "^1.10.0-rc3"
   },
   "description": ""
 }
