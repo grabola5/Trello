@@ -9,6 +9,7 @@ function randomString() {
     }
     return str;
 };
+
 //funkcja umożliwiająca przesuwanie kart
 function initSortable(id) {
   var el = document.getElementById(id);
@@ -51,12 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
   //metody dla klasy Column
   Column.prototype = {
     addCard: function(card) {
-      this.element.querySelector('ul')appendChild(card.element);
+      this.element.querySelector('ul').appendChild(card.element);
     },
     removeColumn: function () {
       this.element.parentNode.removeChild(this.element);
     }
   };
+
   //klasa Card
   function Card(description) {
     var self=this;
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     this.id = randomString();
     this.description = description;
     this.element = generateTemplate('card-template', { description: this.description }, 'li');
-    this.element.querySelector('.card')addEventListener('click', function (event) {
+    this.element.querySelector('.card').addEventListener('click', function (event) {
       event.stopPropagation();
 
       if(event.target.classList.contains('btn-delete')) {
@@ -78,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
       this.element.parentNode.removeChild(this.element);
     }
   };
+
   //obiekt board
   var board = {
     name: 'Kanban Board',
@@ -87,15 +90,30 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     element: document.querySelector('#board .column-container')
   };
-//wrzucanie nowej kolumny do tablicy
-document.querySelector('#board .create-column').addEventListener('click', function() {
-  var name = prompt('Enter a column name');
-  var column = new Column(name);
-  board.addColumn(column);
-});
+  //wrzucanie nowej kolumny do tablicy
+  document.querySelector('#board .create-column').addEventListener('click', function() {
+    var name = prompt('Enter a column name');
+    var column = new Column(name);
+    board.addColumn(column);
+  });
 
+  //TWORZENIE PODSTAWOWYCH ELEMENTÓW
 
-
+  //kolumny
+  var todoColumn = new Column('To do');
+  var doingColumn = new Column ('Doing');
+  var doneColumn = new Column ('Done');
+  //dodawanie do tablicy
+  board.addColumn(todoColumn);
+  board.addColumn(doingColumn);
+  board.addColumn(doneColumn);
+  
+  //karty
+  var card1 = new Card('New task');
+  var card2 = new Card('Create Kanban boards');
+  //dodawanie do kolumn
+  todoColumn.addCard(card1);
+  doingColumn.addCard(card2);
 
 
 });
