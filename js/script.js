@@ -14,7 +14,7 @@ function randomString() {
 document.addEventListener('DOMContentLoaded', function() {
 
 
-//funkcja, która pobiera templatkę HTML, parsuje, renderuje i zwraca gotowy element
+  //funkcja, która pobiera templatkę HTML, parsuje, renderuje i zwraca gotowy element
   function generateTemplate(name, data, basicElement) {
     var template = document.getElementById(name).innerHTML;
     var element = document.createElement(basicElement || 'div');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     return element;
   };
-//klasa Column
+  //klasa Column
   function Column(name) {
     var self = this;
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   };
-//metody dla klasy Column
+  //metody dla klasy Column
   Column.prototype = {
     addCard: function(card) {
       this.element.querySelector('ul')appendChild(card.element);
@@ -48,7 +48,33 @@ document.addEventListener('DOMContentLoaded', function() {
     removeColumn: function () {
       this.element.parentNode.removeChild(this.element);
     }
-  }
-});
+  };
+  //klasa Card
+  function Card(description) {
+    var self=this;
 
+    this.id = randomString();
+    this.description = description;
+    this.element = generateTemplate('card-template', { description: this.description }, 'li');
+    this.element.querySelector('.card')addEventListener('click', function (event) {
+      event.stopPropagation();
+
+      if(event.target.classList.contains('btn-delete')) {
+        self.removeCard();
+      }
+    });
+  };
+  //metoda dla klasy Card
+  Card.prototype = {
+    removeCard: function() {
+      this.element.parentNode.removeChild(this.element);
+    }
+  }
+
+
+
+
+
+
+});
 })();
