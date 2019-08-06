@@ -7,6 +7,7 @@ body {
 }
 
 .board {
+  position: relative;
   width: 100%;
   height: 100vh;
   text-align: center;
@@ -16,18 +17,28 @@ body {
   color: #A0A19B;
   text-shadow: 2px 2px white;
   top: 20px;
-  font-size: 42px;
+  font-size: 46px;
+  font-family: "Lacquer", sans-serif;
 }
 
 .board .create-column {
-  background-color: #e5c3c6;
-  color: white;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  background-color: white;
+  color: #A0A19B;
   font-weight: 600;
   text-align: center;
   height: 40px;
   width: 200px;
   border-radius: 50%;
-  font-size: 22px;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.board .create-column:hover {
+  background-color: #bcd2d0;
+  color: white;
 }
 
 .column-container {
@@ -35,6 +46,7 @@ body {
 }
 
 .column-container .column {
+  position: relative;
   background-color: #A0A19B;
   min-height: 400px;
   width: 30vw;
@@ -53,44 +65,56 @@ body {
   color: white;
   text-align: center;
   background-color: #bcd2d0;
-  text-transform: uppercase;
-  font-size: 25px;
+  font-size: 26px;
+  font-family: "Lacquer", sans-serif;
 }
 
 .column-container .column .btn-delete {
-  background-color: #bcd2d0;
-  border-color: #bcd2d0;
-  color: white;
-  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-color: white;
+  color: #A0A19B;
+  font-size: 20px;
   font-weight: 800;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   float: right;
 }
 
+.column-container .column .btn-delete:hover {
+  background-color: #f46b6b;
+  border: red;
+  color: white;
+}
+
 .column-container .column .add-card {
-  background-color: #e1e9b7;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  background-color: white;
   color: #A0A19B;
   font-weight: 600;
+  padding: 5px;
+}
+
+.column-container .column .add-card:hover {
+  background-color: #e1e9b7;
+  color: #A0A19B;
 }
 
 .card {
+  position: relative;
   background-color: #d0b783;
   min-height: 70px;
   width: 20vw;
   margin: 20px 10px;
   border: 2px solid #bcd2d0;
   box-shadow: 10px 10px 5px grey;
-}
-
-.card .btn-delete {
-  position: relative;
-  bottom: 10px;
-  right: 10px;
-}
-
-.card p {
-  text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */
