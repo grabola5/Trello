@@ -71,7 +71,7 @@ body {
   font-family: "Lacquer", sans-serif;
 }
 
-.column-container .column .btn-delete {
+.column-container .column .delete {
   display: flex;
   justify-content: center;
   position: absolute;
@@ -85,7 +85,7 @@ body {
   width: 20px;
 }
 
-.column-container .column .btn-delete:hover {
+.column-container .column .delete:hover {
   background-color: #f46b6b;
   border: #f46b6b;
   color: white;

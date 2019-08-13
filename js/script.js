@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     this.name = name;
     this.element = generateTemplate('column-template', {name: this.name, id: this.id});
     this.element.querySelector('.column').addEventListener('click', function (event) {
+      console.log(event.target); 
       if (event.target.classList.contains('btn-delete')) {
         self.removeColumn();
       }
