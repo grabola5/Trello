@@ -33,7 +33,7 @@
   "homepage": "https://github.com/grabola5/nauka-gita-2#readme",
   "devDependencies": {
     "autoprefixer-cli": "^1.0.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "globstar": "^1.0.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^4.12.0",
